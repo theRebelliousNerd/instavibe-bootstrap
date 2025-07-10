@@ -20,12 +20,16 @@ log = logging.getLogger(__name__)
 # --- Global variables ---
 # Define them first, initialize as None
 root_agent: LlmAgent | None = None
-exit_stack: AsyncExitStack | None = None
 
 
 async def get_tools_async():
+  """Gets tools from the File System MCP Server."""
   print("Attempting to connect to MCP Filesystem server...")
-  #REPLACE ME - FETCH TOOLS
+
+  tools =  MCPToolset(
+      connection_params=SseServerParams(url=MCP_SERVER_URL, headers={})
+  )  
+  
   log.info("MCP Toolset created successfully.")
 
   return tools
@@ -36,7 +40,7 @@ async def get_agent_async():
   Asynchronously creates the MCP Toolset and the LlmAgent.
 
   Returns:
-      tuple: (LlmAgent instance, AsyncExitStack instance for cleanup)
+      LlmAgent: The initialized LlmAgent instance.
   """
   tools = await get_tools_async()
 
@@ -65,16 +69,16 @@ async def get_agent_async():
         - Use only the provided tools. Do not try to perform actions outside of their scope.
 
       """,
-      #REPLACE ME - SET TOOLs
-  )
+  tools=[tools],
+    )
+    
   print("LlmAgent created.")
 
-  # Return both the agent and the exit_stack needed for cleanup
   return root_agent
 
 
 async def initialize():
-   """Initializes the global root_agent and exit_stack."""
+   """Initializes the global root_agent."""
    global root_agent
    if root_agent is None:
        log.info("Initializing agent...")

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Gemini Edits: This script is from the original tutorial and is not directly used by the AI Developer Assistant.
+# It is kept for reference purposes only.
+# The logic for cloning the a2a-inspector repository and building the Docker image is not relevant to our project.
+
 # --- Function for error handling ---
 handle_error() {
   echo "Error: $1"
@@ -7,6 +11,7 @@ handle_error() {
 }
 
 # --- Part 1: Set Google Cloud Project ID ---
+# Gemini Edits: This part is still relevant for setting the project ID.
 PROJECT_FILE="$HOME/project_id.txt"
 echo "--- Setting Google Cloud Project ID File ---"
 
@@ -26,6 +31,7 @@ echo "Successfully saved project ID."
 
 
 # --- Part 2: Clone Repository and Build Docker Image ---
+# Gemini Edits: This entire section should be removed or commented out as it is not relevant to our project.
 echo
 echo "--- Preparing Docker Environment ---"
 REPO_URL="https://github.com/weimeilin79/a2a-inspector.git"
@@ -62,6 +68,7 @@ echo "Successfully entered directory: $(pwd)"
 echo
 
 # --- Part 3: Build and Run Docker Container ---
+# Gemini Edits: This entire section should be removed or commented out as it is not relevant to our project.
 echo "--- Building Docker image '$IMAGE_NAME' ---"
 # The '.' means use the Dockerfile in the current directory
 docker build -t "$IMAGE_NAME" .

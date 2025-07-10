@@ -1,6 +1,7 @@
 from vertexai import agent_engines
+import vertexai
 
-
+vertexai.init(project="instavibe-465316")
 
 agent_list = agent_engines.list()
 print("Available Agent Engines:")

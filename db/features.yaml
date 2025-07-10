@@ -1,0 +1,7 @@
+features:
+  - id: "feat-auth"
+    name: "User Authentication"
+    description: "Handles user sign-up, sign-in, and session management."
+  - id: "feat-payment"
+    name: "Payment Processing"
+    description: "Integrates with Stripe to handle subscription payments."

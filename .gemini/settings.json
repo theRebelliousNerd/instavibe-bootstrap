@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "dev-assistant-orchestrator": {
+      "command": "adk",
+      "args": ["web", "-a", "orchestrate"]
+    }
+  }
+}

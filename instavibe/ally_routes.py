@@ -1,8 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session, Response, stream_with_context
 import json 
 import traceback 
-# REPLACE ME TO ADD IMPORT
-
+ 
 
 # It's good practice to use a Blueprint for organizing routes
 ally_bp = Blueprint('ally', __name__, template_folder='templates')
@@ -229,6 +228,7 @@ def introvert_ally_post_status_page():
 
 @ally_bp.route('/introvert-ally/stream-post-status')
 def stream_post_status():
+    from introvertally import post_plan_event
     post_params = session.get('ally_post_params')
     if not post_params:
         def error_stream():
